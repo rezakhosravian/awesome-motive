@@ -37,8 +37,9 @@ cp .env.example .env
 # Start containers (APP_PORT from .env controls the host port; defaults to 80)
 docker compose up -d --build
 
+
 # Run setup script (installs dependencies, runs migrations, seeds database, builds assets)
-docker compose exec laravel.test bash deploy/dev.sh
+docker compose exec flashcardpro-app bash deploy/dev.sh
 # This script executes: composer install, npm install, php artisan migrate --seed, and more
 
 # Open
@@ -56,19 +57,19 @@ Seeded accounts (created by database seeders):
 For the full list of APIs, open Swagger UI:
 
 ```bash
-docker compose exec laravel.test php artisan l5-swagger:generate
+docker compose exec flashcardpro-app php artisan l5-swagger:generate
 open http://localhost:${APP_PORT:-80}/api/documentation
 ```
 ## 🧪 Test Suite Execution
 
 Run the complete test suite:
 ```bash
-docker compose exec laravel.test php artisan test
+docker compose exec flashcardpro-app php artisan test
 ```
 
 Run with coverage report:
 ```bash
-docker compose exec laravel.test php artisan test --coverage
+docker compose exec flashcardpro-app php artisan test --coverage
 ```
 
 Coverage achieved: 90%+ across controllers, services, repositories, requests, resources, middleware, 

@@ -19,6 +19,11 @@ return Application::configure(basePath: dirname(__DIR__))
             'api.key' => ApiKeyAuth::class,
             'validate.flashcard.deck' => ValidateFlashcardBelongsToDeck::class,
         ]);
+
+        // Disable CSRF in test environment
+        if (app()->environment('testing')) {
+            $middleware->validateCsrfTokens(except: ['*']);
+        }
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (\Illuminate\Database\Eloquent\ModelNotFoundException $e, \Illuminate\Http\Request $request) {

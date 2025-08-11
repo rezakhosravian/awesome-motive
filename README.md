@@ -30,7 +30,7 @@ A full-featured flashcard application with authentication, deck/flashcard manage
 ## ⚡ Setup Instructions
 
 ```bash
-git clone <repo_url> flashcardpro
+git clone https://github.com/rezakhosravian/awesome-motive.git flashcardpro
 cd flashcardpro
 cp .env.example .env
 
